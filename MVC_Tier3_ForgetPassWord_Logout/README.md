@@ -1,3 +1,8 @@
+BÀI TẬP 03
+Thực hiện chức năng forget password, logout cho bài tập 02
+
+Mô tả phần forget password:
+
 1. Người dùng yêu cầu reset mật khẩu
 2. Người dùng nhập email trên form "Quên mật khẩu".
 - Kiểm tra email có tồn tại trong hệ thống hay không.
