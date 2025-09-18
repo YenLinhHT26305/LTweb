@@ -24,6 +24,5 @@ public class HomeController extends HttpServlet{
 		List<Category> list = cateService.findAll();
 		req.setAttribute("listcate", list);
 		req.getRequestDispatcher("/views/user/home.jsp").forward(req, resp);
-		super.doGet(req, resp);
 	}
 }

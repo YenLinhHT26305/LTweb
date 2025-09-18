@@ -32,7 +32,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Trang chủ của Admin</h1>
+        <a href="<%=request.getContextPath()%>/profile" class="btn">Cập nhật Profile</a>
         <!-- Link logout -->
         <a href="<%=request.getContextPath()%>/logout" class="logout-btn">Đăng xuất</a>
     </div>

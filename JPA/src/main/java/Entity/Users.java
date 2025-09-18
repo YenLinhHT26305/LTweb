@@ -17,7 +17,11 @@ public class Users implements Serializable {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "username", nullable = false, unique = true, length = 100)
+    public void setId(int id) {
+		this.id = id;
+	}
+
+	@Column(name = "username", nullable = false, unique = true, length = 100)
     private String username;
 
     @Column(name = "password", nullable = false, length = 255)
@@ -41,7 +45,7 @@ public class Users implements Serializable {
     @Column(name = "createDate", nullable = false)
     private LocalDateTime createDate;
 
-    // ✅ Quan hệ 1-N: 1 user có nhiều category
+    //Quan hệ 1-N: 1 user có nhiều category
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Category> categories;
 

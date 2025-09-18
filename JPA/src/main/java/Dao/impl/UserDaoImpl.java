@@ -94,4 +94,36 @@ public class UserDaoImpl implements UserDao {
             enma.close();
         }
     }
+
+
+	@Override
+	public void update(Users user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateProfile(int userId, String fullname, String phone, String avatarPath) {
+		 EntityManager enma = JPAConfig.getEntityManager();
+		    EntityTransaction trans = enma.getTransaction();
+		    try {
+		        trans.begin();
+		        Users user = enma.find(Users.class, userId);
+		        if (user != null) {
+		            user.setFullname(fullname);
+		            user.setPhone(phone);
+		            if (avatarPath != null && !avatarPath.isEmpty()) {
+		                user.setAvatar("uploads/" + avatarPath);
+		            }
+		            enma.merge(user);
+		        }
+		        trans.commit();
+		    } catch (Exception e) {
+		        if (trans.isActive()) trans.rollback();
+		        throw e;
+		    } finally {
+		        enma.close();
+		    }		
+	}
+
 }

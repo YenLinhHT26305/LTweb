@@ -15,5 +15,10 @@ public interface UserDao {
 
 	Users findByEmail(String email);
 
+	void update(Users user);
+	 
 	void updatePassword(int userId, String newPassword);
+	
+    void updateProfile(int userId, String fullname, String phone, String avatarPath);
+
 }
